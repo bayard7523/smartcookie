@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Roles</title>
+    <div th:replace="layout/header::header--css"></div>
+</head>
+<body>
+<header th:replace="layout/header::header"></header>
+
+<div>
+    <div>
+        <h2>Roles</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Role</th>
+                <th>Users</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="role:${roles}">
+                <td th:text="${role.getId()}"></td>
+                <td th:text="${role.getName()}"></td>
+                <td th:text="${role.getUsers()}"></td>
+                <td><a th:href="@{/roles/edit/{id}(id=${role.getId()})}">Edit</a></td>
+                <td><a th:href="@{/roles/role/delete/{id}(id=${role.getId()})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/roles/form">Add a new role</a></p>
+</div>
+<div th:replace="layout/footer::footer"></div>
+
+</body>
+</html>

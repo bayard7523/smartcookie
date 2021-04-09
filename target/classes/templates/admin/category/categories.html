@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <div th:replace="layout/header::header--css"></div>
+</head>
+<body>
+<header th:replace="layout/header::header"></header>
+
+<div>
+    <div>
+        <h2>Categories</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Courses</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="category:${categories}">
+                <td th:text="${category.getId()}"></td>
+                <td th:text="${category.getName()}"></td>
+                <td th:text="${category.getCourses()}"></td>
+                <td><a th:href="@{/categories/edit/{id}(id=${category.getId()})}">Edit</a></td>
+                <td><a th:href="@{/roles/delete/{id}(id=${category.getId()})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/categories/form">Add a new category</a></p>
+</div>
+<div th:replace="layout/footer::footer"></div>
+
+</body>
+</html>

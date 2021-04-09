@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing</title>
+    <div th:replace="layout/header::header--css"></div>
+</head>
+<body>
+<header th:replace="layout/header::header"></header>
+<div>
+    <div class="row">
+        <div class="col-sm-4" th:each="course:${courses}" style="width: 30em">
+            <div class="card offset-md-3 ">
+                <div class="card-body ">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                         class="card-img rounded-circle" width="150">
+                    <h5 class="card-title" th:text="${course.getName()}"></h5>
+                    <p class="card-text" th:text="${course.getCategory().getName()}"></p>
+                    <p class="card-text" th:text="${'Price '+course.getPrice()}"></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="layout/footer::footer"></div>
+</body>
+</html>
