@@ -1,11 +1,9 @@
 package org.smartcookie.model;
 
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,23 +16,22 @@ public class User {
     private Long id;
 
     @Column(name = "first_name", nullable = false)
-    @NotBlank(message = "Enter first name")
     private String firstName;
 
     @Column(name = "second_name", nullable = false)
-    @NotBlank(message = "Enter second name")
     private String secondName;
 
     @Column(name = "email", unique = true, nullable = false)
-    @NotBlank(message = "Enter email")
     private String email;
 
     @Column(name = "password", nullable = false)
-    @NotBlank()
     private String password;
 
     @Transient
     private String confirmPassword;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -50,7 +47,6 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
-
     @ManyToMany
     @JoinTable(name = "user_course",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -59,6 +55,7 @@ public class User {
     Set<Course> courses;
 
     public User() {
+        this.enabled = false;
     }
 
     public User(String firstName, String secondName, String email, String password, Role role) {

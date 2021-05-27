@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("The user does not exist");
         }
-        logger.info("User email: " + user.getEmail() + " Roles: " + user.getRole().getName());
+        logger.info("User email: " + user.getEmail() + " Role: " + user.getRole().getName());
         return CustomUserDetails.build(user);
     }
 }

@@ -9,30 +9,37 @@
 <body>
 
 <form action="#" th:action="@{/users/user/update/{id}(id=${user.getId()})}" th:object="${user}" method="post">
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" th:field="*{firstName}" id="firstName" placeholder="Name">
-        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
-    </div>
-    <div class="form-group">
-        <label for="secondName">Second Name</label>
-        <input type="text" th:field="*{secondName}" id="secondName" placeholder="Name">
-        <span th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}"></span>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="firstName">First Name</label>-->
+<!--        <input type="text" th:field="*{firstName}" id="firstName" placeholder="Name">-->
+<!--        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="secondName">Second Name</label>-->
+<!--        <input type="text" th:field="*{secondName}" id="secondName" placeholder="Name">-->
+<!--        <span th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}"></span>-->
+<!--    </div>-->
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" th:field="*{email}" id="email" placeholder="Email">
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" th:field="*{password}" id="password" placeholder="Password">
-        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="password">Password</label>-->
+<!--        <input type="password" th:field="*{password}" id="password" placeholder="Password">-->
+<!--        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
+<!--    </div>-->
     <div class="form-group">
         <label for="role">Role</label>
-        <input type="text" th:field="*{role}" id="role" placeholder="Role">
-        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span>
+        <select name="role" id="role" th:field="*{role}">
+            <option th:each="role:${roles}" th:value="${role.getId()}" th:text="${role.getName()}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="courses">Courses</label>
+        <select name="courses" id="courses" th:field="*{courses}">
+            <option th:each="course:${courses}" th:value="${course.getId()}" th:text="${course.getName()}"></option>
+        </select>
     </div>
     <input type="submit" value="Update User">
 </form>

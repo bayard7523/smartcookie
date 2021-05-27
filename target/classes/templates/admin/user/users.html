@@ -8,22 +8,25 @@
 <body>
 <header th:replace="layout/header::header"></header>
 
+<div th:replace="admin/panel::panel"></div>
+
 <div>
     <div>
         <h2>Users</h2>
-        <table>
+        <table class="table table-striped">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>First Name</th>
-                <th>Second Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Second Name</th>
+                <th scope="col">Email</th>
+                <!--                <th scope="col">Password</th>-->
+                <th scope="col">Role</th>
+                <th scope="col">Courses</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Updated At</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -32,8 +35,11 @@
                 <td th:text="${user.getFirstName()}"></td>
                 <td th:text="${user.getSecondName()}"></td>
                 <td th:text="${user.getEmail()}"></td>
-                <td th:text="${user.getPassword()}"></td>
+                <!--                <td th:text="${user.getPassword()}"></td>-->
                 <td th:text="${user.getRole().getName()}"></td>
+                <td>
+                    <p th:each="course:${user.getCourses()}" th:text="${course.getName()}"></p>
+                </td>
                 <td th:text="${user.getCreatedAt()}"></td>
                 <td th:text="${user.getUpdatedAt()}"></td>
                 <td><a th:href="@{/users/edit/{id}(id=${user.getId()})}">Edit</a></td>
@@ -42,7 +48,7 @@
             </tbody>
         </table>
     </div>
-    <p><a href="/users/form">Add a new user</a></p>
+    <p><a class="btn btn-outline-secondary" href="/users/form">Add a new user</a></p>
 </div>
 <div th:replace="layout/footer::footer"></div>
 

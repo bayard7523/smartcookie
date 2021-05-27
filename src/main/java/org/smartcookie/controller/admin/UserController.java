@@ -1,25 +1,33 @@
 package org.smartcookie.controller.admin;
 
 import org.smartcookie.model.User;
-import org.smartcookie.repository.IUserRepository;
+import org.smartcookie.service.CourseService;
+import org.smartcookie.service.RoleService;
 import org.smartcookie.service.UserService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+    private final RoleService roleService;
+    private final CourseService courseService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RoleService roleService, CourseService courseService) {
         this.userService = userService;
+        this.roleService = roleService;
+        this.courseService = courseService;
     }
 
     @GetMapping("/all")
@@ -27,8 +35,27 @@ public class UserController {
         model.addAttribute("users", userService.getAllUsers());
         return "admin/user/users";
     }
+
+//    @GetMapping("/all/paginated")
+//    public String showUsersPaginated(Model model,
+//                                     @RequestParam("page") Optional<Integer> page,
+//                                     @RequestParam("size") Optional<Integer> size) {
+//        int currentPage=page.orElse(1);
+//        int pageSize=size.orElse(5);
+//        Page<User> userPage=userService.findUsersPaginated(PageRequest.of(currentPage-1,pageSize));
+//        model.addAttribute("userPage",userPage);
+//        int totalPages=userPage.getTotalPages();
+//        if(totalPages>0){
+//            List<Integer> pageNumbers= IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
+//            model.addAttribute("pageNumbers", pageNumbers);
+//        }
+//        return "admin/user/paginated-users";
+//
+//    }
+
     @GetMapping("/form")
-    public String showCreateForm(User user) {
+    public String showCreateForm(User user, Model model) {
+        model.addAttribute("roles", roleService.getAllRoles());
         return "admin/user/add-user";
     }
 
@@ -45,8 +72,9 @@ public class UserController {
 
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
-        User user = userService.getUserById(id);
-        model.addAttribute("user", user);
+        model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("roles", roleService.getAllRoles());
+        model.addAttribute("courses", courseService.getAllCourses());
         return "admin/user/update-user";
 
     }
@@ -54,10 +82,11 @@ public class UserController {
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Long id, @Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            user.setId(id);
-            return "admin/user/update-user";
+            throw new RuntimeException(result.toString());
+//            user.setId(id);
+//            return "redirect:/users/edit/{id}";
         }
-        userService.createUser(user);
+        userService.updateUser(user);
         return "redirect:/users/all";
     }
 

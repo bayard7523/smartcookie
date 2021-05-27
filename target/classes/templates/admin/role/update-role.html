@@ -8,7 +8,7 @@
 <form action="#" th:action="@{/roles/role/update/{id}(id=${role.getId()})}" th:object="${role}" method="post">
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:text="${}"></span>
     <input type="submit" value="Update Role">
 </form>
 
