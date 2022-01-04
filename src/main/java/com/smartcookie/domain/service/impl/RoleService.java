@@ -1,7 +1,8 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
-import com.smartcookie.model.Role;
-import com.smartcookie.repository.IRoleRepository;
+import com.smartcookie.domain.service.IRoleService;
+import com.smartcookie.persistence.entity.Role;
+import com.smartcookie.persistence.repository.IRoleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

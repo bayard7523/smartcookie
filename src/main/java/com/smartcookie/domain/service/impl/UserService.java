@@ -1,9 +1,10 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
-import com.smartcookie.model.Role;
-import com.smartcookie.model.User;
-import com.smartcookie.repository.IRoleRepository;
-import com.smartcookie.repository.IUserRepository;
+import com.smartcookie.domain.service.IUserService;
+import com.smartcookie.persistence.entity.Role;
+import com.smartcookie.persistence.entity.User;
+import com.smartcookie.persistence.repository.IRoleRepository;
+import com.smartcookie.persistence.repository.IUserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -11,7 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 @Service
 public class UserService implements IUserService {

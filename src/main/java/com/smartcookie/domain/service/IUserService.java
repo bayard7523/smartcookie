@@ -1,6 +1,6 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service;
 
-import com.smartcookie.model.User;
+import com.smartcookie.persistence.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

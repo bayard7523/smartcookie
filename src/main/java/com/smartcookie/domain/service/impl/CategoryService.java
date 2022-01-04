@@ -1,7 +1,8 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
-import com.smartcookie.model.Category;
-import com.smartcookie.repository.ICategoryRepository;
+import com.smartcookie.domain.service.ICategoryService;
+import com.smartcookie.persistence.entity.Category;
+import com.smartcookie.persistence.repository.ICategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

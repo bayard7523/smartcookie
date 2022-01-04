@@ -1,6 +1,6 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
-import com.smartcookie.model.User;
+import com.smartcookie.persistence.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

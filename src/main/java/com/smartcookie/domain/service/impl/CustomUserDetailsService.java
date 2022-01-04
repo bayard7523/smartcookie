@@ -1,9 +1,9 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
+import com.smartcookie.persistence.entity.User;
+import com.smartcookie.persistence.repository.IUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.smartcookie.model.User;
-import com.smartcookie.repository.IUserRepository;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

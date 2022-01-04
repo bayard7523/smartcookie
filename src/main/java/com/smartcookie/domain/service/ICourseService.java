@@ -1,6 +1,6 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service;
 
-import com.smartcookie.model.Course;
+import com.smartcookie.persistence.entity.Course;
 
 import java.util.List;
 

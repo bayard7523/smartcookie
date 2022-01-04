@@ -1,7 +1,7 @@
-package com.smartcookie.request;
+package com.smartcookie.domain.dto;
 
-import com.smartcookie.model.Role;
-import com.smartcookie.model.User;
+import com.smartcookie.persistence.entity.Role;
+import com.smartcookie.persistence.entity.User;
 
 import javax.validation.constraints.NotNull;
 

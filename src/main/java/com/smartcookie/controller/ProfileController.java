@@ -1,13 +1,16 @@
 package com.smartcookie.controller;
 
-import com.smartcookie.model.User;
-import com.smartcookie.service.CustomUserDetails;
-import com.smartcookie.service.UserService;
+import com.smartcookie.domain.service.impl.CustomUserDetails;
+import com.smartcookie.domain.service.impl.UserService;
+import com.smartcookie.persistence.entity.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.security.Principal;

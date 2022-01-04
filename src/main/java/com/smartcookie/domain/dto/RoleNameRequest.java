@@ -1,4 +1,4 @@
-package com.smartcookie.request;
+package com.smartcookie.domain.dto;
 
 public class RoleNameRequest {
     private String name;

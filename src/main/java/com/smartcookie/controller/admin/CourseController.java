@@ -1,8 +1,8 @@
 package com.smartcookie.controller.admin;
 
-import com.smartcookie.model.Course;
-import com.smartcookie.service.CategoryService;
-import com.smartcookie.service.CourseService;
+import com.smartcookie.domain.service.impl.CategoryService;
+import com.smartcookie.domain.service.impl.CourseService;
+import com.smartcookie.persistence.entity.Course;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

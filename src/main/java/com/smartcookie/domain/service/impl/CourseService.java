@@ -1,9 +1,10 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service.impl;
 
-import com.smartcookie.model.Category;
-import com.smartcookie.model.Course;
-import com.smartcookie.repository.ICategoryRepository;
-import com.smartcookie.repository.ICourseRepository;
+import com.smartcookie.domain.service.ICourseService;
+import com.smartcookie.persistence.entity.Category;
+import com.smartcookie.persistence.entity.Course;
+import com.smartcookie.persistence.repository.ICategoryRepository;
+import com.smartcookie.persistence.repository.ICourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

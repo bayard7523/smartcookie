@@ -1,7 +1,7 @@
 package com.smartcookie.config;
 
-import com.smartcookie.service.CustomUserDetails;
-import com.smartcookie.service.CustomUserDetailsService;
+import com.smartcookie.domain.service.impl.CustomUserDetails;
+import com.smartcookie.domain.service.impl.CustomUserDetailsService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;

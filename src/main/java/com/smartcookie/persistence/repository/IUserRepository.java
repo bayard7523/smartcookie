@@ -1,6 +1,6 @@
-package com.smartcookie.repository;
+package com.smartcookie.persistence.repository;
 
-import com.smartcookie.model.User;
+import com.smartcookie.persistence.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IUserRepository extends JpaRepository<User, Long> {

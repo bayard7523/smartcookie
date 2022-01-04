@@ -1,7 +1,7 @@
 package com.smartcookie.controller;
 
-import com.smartcookie.service.CourseService;
-import com.smartcookie.service.RoleService;
+import com.smartcookie.domain.service.impl.CourseService;
+import com.smartcookie.domain.service.impl.RoleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

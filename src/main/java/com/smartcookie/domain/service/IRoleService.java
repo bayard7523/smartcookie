@@ -1,6 +1,6 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service;
 
-import com.smartcookie.model.Role;
+import com.smartcookie.persistence.entity.Role;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.smartcookie.service;
+package com.smartcookie.domain.service;
 
-import com.smartcookie.model.Category;
+import com.smartcookie.persistence.entity.Category;
 
 import java.util.List;
 

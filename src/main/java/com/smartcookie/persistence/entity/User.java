@@ -1,4 +1,4 @@
-package com.smartcookie.model;
+package com.smartcookie.persistence.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

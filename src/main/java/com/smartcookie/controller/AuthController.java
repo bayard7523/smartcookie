@@ -1,8 +1,8 @@
 package com.smartcookie.controller;
 
-import com.smartcookie.model.User;
-import com.smartcookie.service.RoleService;
-import com.smartcookie.service.UserService;
+import com.smartcookie.domain.service.impl.RoleService;
+import com.smartcookie.domain.service.impl.UserService;
+import com.smartcookie.persistence.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

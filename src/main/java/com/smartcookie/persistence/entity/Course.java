@@ -1,4 +1,4 @@
-package com.smartcookie.model;
+package com.smartcookie.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Set;
